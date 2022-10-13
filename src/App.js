@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+class App extends Component {
+  state = { isActive: false };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  handleToggle = () => {
+    this.setState({ isActive: !this.state.isActive });
+  };
+
+  render() {
+    const isActive = this.state.isActive;
+    console.log(isActive)
+    return (
+      <div >
+        <button onClick={this.handleToggle} className={isActive ? "active" : "no"}>Toggle class</button>
+        {/* css ex... */}
+      </div>
+    );
+  }
 }
 
 export default App;
